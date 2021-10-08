@@ -6,9 +6,9 @@ export const Container = styled.div`
   flex-direction: column;
   margin: auto;
   max-width: 80%;
-  /* background: white; */
 
   > div {
+    align-self: center;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
@@ -19,4 +19,10 @@ export const Container = styled.div`
   @media (max-width: 720px) {
     max-width: 95%;
   }
+`;
+
+export const Empty = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

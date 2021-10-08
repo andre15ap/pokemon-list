@@ -6,7 +6,7 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${COLORS.PRIMARY};
+  background: linear-gradient(240deg, ${COLORS.PRIMARY} 0%, ${COLORS.SECONDARY} 100%);
   width: 100%;
   min-height: 8rem;
 `;
@@ -18,8 +18,9 @@ export const Content = styled.div`
   justify-content: space-between;
 
   > img {
-    width: 5rem;
-    height: 5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    cursor: pointer;
   }
 
   > div {
@@ -39,8 +40,18 @@ export const Content = styled.div`
       border-radius: 0.3rem;
       color: ${COLORS.WHITE};
       margin-left: 0.5rem;
-      background: ${COLORS.SECONDARY};
+      background: ${COLORS.ORANGE_BTN};
       line-height: 0;
+      
+      transition: filter 0.3s;
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+
+      &:active {
+        filter: brightness(0.6);
+      }
     }
   }
 
@@ -48,8 +59,8 @@ export const Content = styled.div`
     min-width: 95%;
 
     > img {
-      width: 3rem;
-      height: 3rem;
+      width: 3.5rem;
+      height: 3.5rem;
     }
 
     > div {

@@ -1,3 +1,5 @@
+import { getTypeColor } from '../../services/get-type-colors';
+
 import { Container, ContentImage, ContentBody, Footer, Type } from './styles';
 
 type PokemonProps = {
@@ -24,7 +26,7 @@ export function Card(props: PokemonProps) {
           <h2>{pokemon.name}</h2>
           <div>
             {pokemon.type.map(type => (
-              <Type type={type}>{type}</Type>
+              <Type key={type} typeColors={getTypeColor(type)}>{type}</Type>
             ))}
           </div>
         </Footer>

@@ -2,28 +2,11 @@ import styled from 'styled-components';
 
 import { COLORS } from '../../library/colors';
 
-const getTypeColor = (type: string) => {
-  switch(type) {
-    case 'Grass': {
-      return COLORS.GREEN;
-    }
-    case 'Poison': {
-      return COLORS.PURPLE;
-    }
-    case 'Fire': {
-      return COLORS.ORANGE;
-    }
-    case 'Water': {
-      return COLORS.BLUE;
-    }
-    default: {
-      return COLORS.GRAY;
-    }
-  }
-}
-
 type Props =  {
-  type: string;
+  typeColors: {
+    backgroundColor: string,
+    textColor: string
+  };
 }
 
 export const Container = styled.div`
@@ -32,7 +15,12 @@ export const Container = styled.div`
   background: ${COLORS.GRAY_LIGHT};
   border-radius: 0.5rem;
   justify-content: space-between;
-  box-shadow: 4px 4px 8px -3px ${COLORS.OPACITY};
+  box-shadow: 2px 2px 6px -3px ${COLORS.OPACITY};
+  max-width: 23rem;
+
+  @media (max-width: 425px) {
+    max-width: 100%;
+  }
 `;
 
 export const ContentImage = styled.div`
@@ -60,13 +48,14 @@ export const ContentBody = styled.div`
 
   > span {
     color: ${COLORS.GRAY};
-    width: 70%;
+    width: 65%;
     background: ${COLORS.WHITE};
     font-weight: 700;
-    border-top-right-radius: 0.3rem;
+    border-top-right-radius: 1rem;
     padding-left: 0.5rem;
     padding-top: 0.2rem;
-    margin-bottom: -0.2rem;
+    margin-bottom: -0.5rem;
+    z-index: 10;
   }
 `;
 
@@ -81,6 +70,7 @@ export const Footer = styled.div`
 
   > h2 {
     padding: 1rem 0;
+    margin-top: 0.5rem;
   }
 
   > div {
@@ -89,10 +79,12 @@ export const Footer = styled.div`
 `;
 
 export const Type = styled.span`
+  min-width: 5rem;
   font-size: 0.8rem;
+  text-align: center;
   border-radius: 0.3rem;
-  background:  ${(props: Props) => getTypeColor(props.type)};
-  padding: 0.1rem 0.3rem;
-  color: ${COLORS.WHITE};
+  background:  ${(props: Props) => props.typeColors.backgroundColor};
+  padding: 0.2rem 0.3rem;
+  color: ${(props: Props) => props.typeColors.textColor};
   margin-right: 0.3rem;
 `;
