@@ -1,3 +1,7 @@
+# Pokemon List
+
+project with react and typescript
+
 ## Available Scripts
 
 In the project directory, you can run:
